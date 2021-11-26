@@ -18,7 +18,9 @@ class ResultViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func recalculatePressed(_ sender: UIButton) {
+    }
+    
     /*
     // MARK: - Navigation
 
