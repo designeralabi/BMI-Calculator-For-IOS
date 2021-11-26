@@ -42,14 +42,6 @@ class ViewController: UIViewController {
         let bmi = weight / pow(height, 2)
         print(bmi)
         
-        //import the secondViewController and stores it secondVc variable
-        let secondVC = SecondViewController()
-        
-        secondVC.bmiValue = String(format: "%.1f", bmi)
-        
-        //display the secondViewController to the user
-        self.present(secondVC, animated: true, completion: nil)
-        
     }
     
     
