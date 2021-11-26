@@ -11,6 +11,8 @@ import UIKit
 import Foundation
 
 class CalculateViewController: UIViewController {
+    
+    var bmiValue = "0.0"
 
     @IBOutlet var heightLabel: UILabel!
     @IBOutlet var weightLabel: UILabel!
@@ -40,10 +42,22 @@ class CalculateViewController: UIViewController {
        let weight = weightSlider.value
         
         let bmi = weight / pow(height, 2)
+        bmiValue = String(format: "%.1f", bmi)
+        
         print(bmi)
         
-        self.performSegue(withIdentifier: "goToResult", sender: CalculateViewController())
+        self.performSegue(withIdentifier: "goToResult", sender: self)
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //using the if to check which Segue identifier should in case of a situation where multiple viewController screem is involved
+        if segue.identifier == "goToResult" {
+            
+            
+           let destinationVC = segue.destination as! ResultViewController
+            destinationVC.bmiValue = bmiValue
+        }		
     }
     
     
